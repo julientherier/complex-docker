@@ -16,6 +16,11 @@ jobs:
       - run: docker build -t julientherier/complex-nginx ./nginx
       - run: docker build -t julientherier/complex-server ./server
       - run: docker build -t julientherier/complex-worker ./worker
+
+      - run: docker push julientherier/complex-client
+      - run: docker push julientherier/complex-nginx
+      - run: docker push julientherier/complex-server
+      - run: docker push julientherier/complex-worker
 #- name: Generate deployment package
 #  run: zip -r deploy.zip . -x '*.git*'
 #
