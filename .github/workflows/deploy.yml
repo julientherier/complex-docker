@@ -12,10 +12,10 @@ jobs:
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t julientherier/docker-complex -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true julientherier/docker-complex npm test
-      - run: docker build -t julientherier/complex-client -f ./client
-      - run: docker build -t julientherier/complex-nginx -f ./nginx
-      - run: docker build -t julientherier/complex-server -f ./server
-      - run: docker build -t julientherier/complex-worker -f ././worker
+      - run: docker build -t julientherier/complex-client ./client
+      - run: docker build -t julientherier/complex-nginx ./nginx
+      - run: docker build -t julientherier/complex-server ./server
+      - run: docker build -t julientherier/complex-worker ./worker
 #- name: Generate deployment package
 #  run: zip -r deploy.zip . -x '*.git*'
 #
